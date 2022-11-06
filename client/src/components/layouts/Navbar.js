@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { io } from "socket.io-client";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Navbar=({ auth: { isAuthenticated, loading }, logout })=>{
   const socket = useRef();
   const [notif,setNotif]=useState('white')

@@ -1,7 +1,6 @@
 import React,{useRef} from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Card,Button,ListGroup,Dropdown} from 'react-bootstrap'
 import pfp from '../../img/default_pfp.jpg'
 const ProfileItem = ({
