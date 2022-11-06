@@ -21,7 +21,9 @@ export default function Messenger({match}) {
   const scrollRef = useRef();
   const c=useSelector(state=>state.currChat)
   useEffect(() => {
-    socket.current = io("ws://localhost:8900");
+    const port=process.env.ENDPOINT||'ws://localhost:5000'
+    console.log(port)
+    socket.current = io(port);
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
