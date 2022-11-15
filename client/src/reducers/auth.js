@@ -28,7 +28,7 @@ const initialState={
                 localStorage.removeItem('token')
                 localStorage.removeItem('user')
                 return {
-                    ...state,token:null,isAuthenticated:false,loading:false
+                    ...state,token:null,isAuthenticated:false,loading:false,user:null
                 }   
         default:
                 return state     

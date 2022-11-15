@@ -46,13 +46,12 @@ const server=app.listen(PORT,()=>{
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://letsconnect01.herokuapp.com/",
     },
   });
   
   let users = [];
   const addUser = (userId, socketId) => {
-    console.log(userId,socketId)
     !users.some((user) => user.userId === userId) &&
       users.push({ userId, socketId });
   };
@@ -76,6 +75,7 @@ const io = require("socket.io")(server, {
   
     //send and get message
     socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+      console.log(receiverId,users)
       const user = getUser(receiverId);
       io.to(user.socketId).emit("getMessage", {
         senderId,
