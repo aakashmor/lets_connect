@@ -3,7 +3,6 @@ const dotenv=require('dotenv')
 
 dotenv.config()
 const mongoURL=process.env.mongoURI
-console.log(process.env)
 
 const connectDB= async ()=>{
     try{
