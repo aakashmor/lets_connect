@@ -21,7 +21,7 @@ export default function Messenger({match}) {
   const scrollRef = useRef();
   const c=useSelector(state=>state.currChat)
   useEffect(() => {
-    const port='https://letsconnect01.herokuapp.com/'
+    const port='http://localhost:5000/'
     console.log(port)
     socket.current = io(port);
     socket.current.on("getMessage", (data) => {
@@ -83,13 +83,14 @@ export default function Messenger({match}) {
     const receiverId = currentChat.members.find(
       (member) => member !== user._id
     );
-
+    const n=onlineUsers.find((el)=>el===receiverId)
+    if(n){
     socket.current.emit("sendMessage", {
       senderId: user._id,
       receiverId,
       text: newMessage,
     });
-
+  }
     try {
       const res = await axios.post("/messages", message);
       setMessages([...messages, res.data]);

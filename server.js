@@ -75,8 +75,9 @@ const io = require("socket.io")(server, {
   
     //send and get message
     socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-      console.log(receiverId,users)
+      //console.log(receiverId,users)
       const user = getUser(receiverId);
+      
       io.to(user.socketId).emit("getMessage", {
         senderId,
         text,
