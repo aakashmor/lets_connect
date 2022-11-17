@@ -8,7 +8,7 @@ const Navbar=({ auth: { isAuthenticated, loading }, logout })=>{
   const socket = useRef();
   const [notif,setNotif]=useState('white')
   useEffect(() => {
-    socket.current = io("http://localhost:5000/");
+    socket.current = io("https://letsconnect01.herokuapp.com/");
     socket.current.on("getMessage", (data) => {
       console.log("message recieved")
       setNotif('red');
