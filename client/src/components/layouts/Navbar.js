@@ -5,20 +5,10 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { io } from "socket.io-client";
 const Navbar=({ auth: { isAuthenticated, loading }, logout })=>{
-  const socket = useRef();
-  const [notif,setNotif]=useState('white')
-  useEffect(() => {
-    socket.current = io("https://letsconnect01.herokuapp.com/");
-    socket.current.on("getMessage", (data) => {
-      console.log("message recieved")
-      setNotif('red');
-    });
-  }, []);
-
   const authLinks = (
      <ul>  
        <li >
-         <Link to ='/messenger'style={{color:notif}}>Messages</Link>
+         <Link to ='/messenger'>Messages</Link>
        </li>
         <li>
         <Link to='/profiles'>Leaderboard</Link>
