@@ -9,7 +9,6 @@ import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
 import ProfileGithub from './ProfileGithub';
 import ProfileLeetcode from './ProfileLeetcode';
-import ProfileCodeforces from './ProfileCodeforces';
 import ProfileReviews from './ProfileReviews'
 import { getProfileById } from '../../actions/profile';
 import Typed from 'typed.js';
@@ -87,10 +86,7 @@ const Profile = ({
             ):<>Github username not provided<br></br></>}
             {profile.leetcodeusername ? (
               <ProfileLeetcode username={profile.leetcodeusername} />
-            ):<>Leetcode username not provided<br></br></>} 
-             {profile.codeforcesusername ? (
-              <ProfileCodeforces username={profile.codeforcesusername} />
-            ):<>Codeforces username not provided <br></br></>} 
+            ):<>Leetcode username not provided<br></br></>}  
 </section>
 
 <section class="contact" id="contact">

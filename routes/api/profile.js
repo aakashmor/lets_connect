@@ -93,7 +93,8 @@ router.get('/me',auth,async(req,res)=>{
                                //GET all profiles
 router.get('/',async(req,res)=>{
     try{
-               const profiles=await Profile.find().populate('user',['name','avatar']).sort({ likes: -1});
+               const profiles=await Profile.find().populate('user',['name','avatar']);
+               profiles.sort(function(a,b){return b.likes.length-a.likes.length})
                res.json(profiles)
     }catch(error){
         console.log(error.message)

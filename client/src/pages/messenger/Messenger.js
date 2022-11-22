@@ -21,7 +21,7 @@ export default function Messenger({match}) {
   const scrollRef = useRef();
   const c=useSelector(state=>state.currChat)
   useEffect(() => {
-    const port='https://letsconnect01.herokuapp.com/'
+    const port='http://localhost:5000/'
     console.log(port)
     socket.current = io(port);
     socket.current.on("getMessage", (data) => {
